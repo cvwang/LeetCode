@@ -20,24 +20,28 @@ int main(){
 	a = "paper";
 	b = "tetle";
 	cout << isomorphic(a,b) << '\n';
+	cout << isomorphic("13","42") << '\n';
+	cout << isomorphic("13",",!") << '\n';
+	cout << isomorphic("131",",!,") << '\n';
+	cout << isomorphic("132",",!,") << '\n';
 	return 0;
 }
 
 // use unordered_map
-bool isomorphic(const string &a, const string &b){
-	int size = a.size();
-	// if(size != b.size()) return false;
+bool isomorphic(const string &s, const string &t){
+	int size = s.size();
+	// if(size != t.size()) return false;
 	unordered_map<char, char> charMap;
-	vector<bool> charVisited(26, false);
+	vector<bool> charVisited(128, false);
 	for(int i=0; i<size; ++i){
-		auto it = charMap.find(a[i]);
+		auto it = charMap.find(s[i]);
 		// if char not mapped
 		if(it == charMap.end()){
-			if(charVisited[b[i]-97] == true) return false;
-			charMap[a[i]] = b[i];
-			charVisited[b[i]-97] = true;
+			if(charVisited[t[i]] == true) return false;
+			charMap[s[i]] = t[i];
+			charVisited[t[i]] = true;
 		} else {
-			if(it->second != b[i]){
+			if(it->second != t[i]){
 				return false;
 			}
 		}
