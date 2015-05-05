@@ -18,10 +18,6 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
 	int end1 = size1;
 	int mid1 = -1;
 	int mid2 = -1;
-	if(!size1){
-		if(totalSize % 2) return nums2[size2/2];
-		else return (nums2[size2/2-1] + nums2[size2/2]) / 2.0;
-	}
 	while(begin1 <= end1){
 		// keep size of right side geq size of left side
 		mid1 = (end1 + begin1)/2;
@@ -60,8 +56,8 @@ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
 }
 
 int main(){
-	vector<int> nums1 = {2, 6, 9, 13, 19};
-	vector<int> nums2 = {1, 15, 29};
+	// vector<int> nums1 = {2, 6, 9, 13, 19};
+	// vector<int> nums2 = {1, 15, 29};
 	// vector<int> nums1 = {2, 6, 9, 13, 19, 51};
 	// vector<int> nums2 = {1, 15, 29};
 	// vector<int> nums1 = {-1, 0, 1, 2, 3};
@@ -74,7 +70,7 @@ int main(){
 	// vector<int> nums2 = {1};
 	// vector<int> nums1 = {2, 5};
 	// vector<int> nums2 = {1};
-	// vector<int> nums1 = {-1, 5};
-	// vector<int> nums2 = {1};
+	vector<int> nums1 = {-1, 5};
+	vector<int> nums2 = {1};
 	cout << findMedianSortedArrays(nums1, nums2) << '\n';
 }
