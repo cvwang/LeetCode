@@ -66,5 +66,6 @@ int main(){
 	vector<string> words = {"justification."};
 	Solution sol;
 	vector<string> formatted = sol.fullJustify(words, 14);
+	
 	for(auto &x: formatted) cout << x << '\n';
 }
